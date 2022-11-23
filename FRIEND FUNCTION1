@@ -1,0 +1,37 @@
+#include <iostream>
+using namespace std;
+class travel{
+
+    private:
+     int distance, speed;
+    public:
+     void set(int a, int b)
+     {
+        distance = a;
+        speed = b;
+     }
+     void show()
+     {
+        cout << "DISTANCE : " << distance << endl;
+        cout << "SPEED : " << speed << endl;
+     }
+
+     friend double time(travel);
+     
+};
+
+double time(travel t)
+{
+    double tm = double(t.distance) / double(t.speed);
+    return tm;
+}
+
+int main()
+{
+    travel o1;
+    o1.set(200,50);
+    o1.show();
+    cout << "time requred to covered distance : " << time(o1) << endl;
+
+    return 0;
+}
